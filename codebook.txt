@@ -1,0 +1,45 @@
+The file tidy_data.txt contains data that come from the files located in the dataset provided by Samsung concerning the smartphone accelerometer and gyroscope time- and frequency- domain signal measurements to be used to determine activity type. Their full data descriptions can be found at: 
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+And the data can be downloaded at: 
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+30 volunteers were used (20 randomly selected as trial, and 10 randomly selected as test subjects) to collect data on 6 activities: Walking, Walking upstairs, walking downstairs, sitting, laying, and standing. The variables in tidy_data.txt are the means for each subject for each activity. The original data were collected as described in the features_info.txt and features.txt text files (found at the above links), and this tidy_data.txt data is these original data reoganized and summarized using the mean() fuction in R. 
+
+The first two data columns are as follows: 
+Subject 		 		subject identifier
+Activity 				a descriptive factor variable showing the activity the subject was performing (one of Walking, Walking Upstairs, Walking Downstairs, Laying, Sitting, or Standing)
+
+The remaining 79 columns are the means of the variables described in features.txt and features_info.txt. Explicitly:
+
+tBodyAcc-mean()-X 		the average (mean) of the time domain signal Body Acceleration mean in the X direction, the mean of the variable as described in features_info.txt and features.txt
+...						the remaining 78 variables can be interpreted as the mean of the corresponding variable (described in features_info.txt and features.txt) as described below. 
+
+tBodyAcc-XYZ  				mean of the time domain Body Acceleration in each direction (X, Y, Z)
+tGravityAcc-XYZ  			mean of the time domain Gravity Acceleration in each direction (X, Y, Z)
+tBodyAccJerk-XYZ  			mean of the time domain Body Acceleration Jerk in each direction (X, Y, Z)
+tBodyGyro-XYZ 			 	mean of the time domain Body Angular Acceleration (Gyroscopic) in each direction (X, Y, Z)
+tBodyGyroJerk-XYZ 			mean of the time domain Body Angular Acceleration Jerk (Gyroscopic) in each direction (X, Y, Z)
+tBodyAccMag 				mean of the time domain Body Acceleration Magnitude
+tGravityAccMag				mean of the time domain gravity acceleration magnitude
+tBodyAccJerkMag				mean of the time domain body acceleration jerk magnitude
+tBodyGyroMag 				mean of the time domain body angular acceleration magnitude
+tBodyGyroJerkMag			mean of the time domain angular acceleration jerk magnitude 
+
+fBodyAcc-XYZ 				mean of the frequency domain body acceleration in each direction
+fBodyAccJerk-XYZ 			mean of the frequency domain body acceleration jerk in each direction
+fBodyGyro-XYZ 				mean of the frequency domain angular acceleration in each direction
+fBodyAccMag 				mean of the frequency domain body acceleration magnitude
+fBodyAccJerkMag 			mean of the frequency domain body acceleration jerk magnitude
+fBodyGyroMag 				mean of the frequency domain angular acceleration magnitude
+fBodyGyroJerkMag 			mean of the frequency domain angular acceleration jerk magnitude
+
+The mean value (mean()) and standard deviation (std()) of the above variables were calculated in the original dataset over small windows in the signal, and these means and standard devitions were then averaged (mean) over the activity and the subject for the tidy_data.txt dataset submitted for this assignment. The original data were derived as described below, copied from the features_info.txt file from the above link. 
+
+"The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions. "
